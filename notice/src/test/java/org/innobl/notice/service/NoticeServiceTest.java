@@ -1,6 +1,7 @@
 package org.innobl.notice.service;
 
 import org.innobl.notice.beans.Notice;
+import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.exception.NoticeException;
 import org.innobl.notice.service.NoticeService;
 import org.junit.jupiter.api.DisplayName;
@@ -23,5 +24,18 @@ public class NoticeServiceTest {
     void getAllNoticesTest(){
         List<Notice> noticeList = noticeService.getAllNotices();
         assertThat(noticeList.size()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("builder작동 테스트")
+    void getOneNoticesTest(){
+        NoticeBoardDto dto = NoticeBoardDto.builder()
+                        .writer("홍길동")
+                        .fixed("고정")
+                        .nb_title("첫번째 공지글")
+                        .build();
+
+        assertThat(dto.getWriter()).isEqualTo("홍기동");
+
     }
 }
