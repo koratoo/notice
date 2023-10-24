@@ -82,10 +82,10 @@ public class NoticeServiceTest {
     }
 
     @Test
-    @DisplayName("1번 글을 삭제한다.")
+    @DisplayName("2번 글을 삭제한다.")
     void delBoardNumberOne(){
         //given
-        String num = "1";
+        int num = 2;
         //when
         noticeService.deleteNotice(num);
         //then

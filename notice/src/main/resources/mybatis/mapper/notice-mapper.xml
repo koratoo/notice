@@ -22,7 +22,7 @@
         )
     </insert>
 
-    <delete id="deleteNotice" parameterType="String">
+    <delete id="deleteNotice" parameterType="Integer">
         delete from notice.noticeboard where nbno = #{nbno}
     </delete>
 </mapper>

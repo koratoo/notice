@@ -15,7 +15,7 @@ public interface NoticeMapper {
     public List<Notice> getAllNotices();
 
     public void writeNotice(NoticeBoardDto dto);
-    public void deleteNotice(String nbno);
+    public void deleteNotice(int nbno);
 
 
 }
