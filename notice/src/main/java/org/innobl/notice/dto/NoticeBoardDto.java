@@ -10,6 +10,8 @@ public class NoticeBoardDto {
     private String writer;
     private String fixed;
 
+    private String regdate;
+
     @Builder
     public NoticeBoardDto(String nb_title, String nb_content, String writer, String fixed) {
         this.nb_title = nb_title;

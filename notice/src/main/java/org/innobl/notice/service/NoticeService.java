@@ -30,4 +30,7 @@ public class NoticeService {
     public void writeNotice(NoticeBoardDto dto){
         noticeMapper.writeNotice(dto);
     }
+    public void deleteNotice(String nbno){
+        noticeMapper.deleteNotice(nbno);
+    }
 }

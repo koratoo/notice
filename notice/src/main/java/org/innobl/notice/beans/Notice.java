@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 public class Notice {
-    private String nbno;
+    private int nbno;
     private String nb_title;
     private String nb_content;
     private String writer;

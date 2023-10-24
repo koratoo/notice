@@ -11,12 +11,18 @@
             nb_title,
             nb_content,
             writer,
+            regdate,
             fixed
         ) VALUES (
             #{nb_title},
             #{nb_content},
             #{writer},
+            date_trunc('second', current_timestamp),
             #{fixed}
         )
     </insert>
+
+    <delete id="deleteNotice" parameterType="String">
+        delete from notice.noticeboard where nbno = #{nbno}
+    </delete>
 </mapper>

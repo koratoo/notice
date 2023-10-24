@@ -5,6 +5,8 @@ import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.exception.NoticeErrorMessage;
 import org.innobl.notice.exception.NoticeException;
 import org.innobl.notice.service.NoticeService;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class NoticeServiceTest {
     @Autowired
     NoticeService noticeService;
+
+    @AfterEach
+    void clean(){
+        noticeService.getAllNotices().clear();
+    }
 
     @Test
     @DisplayName("빈 테이블에서 1건의 결과를 기대하면 실패한다.")
@@ -56,19 +63,32 @@ public class NoticeServiceTest {
     }
 
     @Test
-    @DisplayName("데이터 1건 등록 테스트")
+    @DisplayName("데이터 9건 등록 테스트")
     void insertOneDate(){
         //given
-        NoticeBoardDto dto = NoticeBoardDto.builder()
-                .writer("홍길동")
-                .fixed("고정")
-                .nb_title("첫번째 공지글")
-                .nb_content("글 내용은 2048바이트")
-                .build();
-        //when
-        noticeService.writeNotice(dto);
+        for(int i=1;i<10;i++) {
+            NoticeBoardDto dto = NoticeBoardDto.builder()
+                    .writer("홍길동"+i)
+                    .fixed("고정")
+                    .nb_title(i+"번째 공지글")
+                    .nb_content("글 내용은 2048바이트")
+                    .build();
+            //when
+            noticeService.writeNotice(dto);
+        }
 
         //then
-        assertThat(noticeService.getAllNotices().size()).isEqualTo(1);
+        assertThat(noticeService.getAllNotices().size()).isEqualTo(19);
+    }
+
+    @Test
+    @DisplayName("1번 글을 삭제한다.")
+    void delBoardNumberOne(){
+        //given
+        String num = "1";
+        //when
+        noticeService.deleteNotice(num);
+        //then
+        assertThat(noticeService.getAllNotices().size()).isEqualTo(2);
     }
 }
