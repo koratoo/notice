@@ -19,11 +19,6 @@ public class NoticeService {
 
     public List<Notice> getAllNotices() {
         List<Notice> notices = noticeMapper.getAllNotices();
-
-        if (notices == null || notices.isEmpty()) {
-            throw new NoticeException("No notices found.");
-        }
-
         return notices;
     }
 }

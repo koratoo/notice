@@ -3,6 +3,7 @@ package org.innobl.notice.service;
 import org.innobl.notice.beans.Notice;
 import org.innobl.notice.exception.NoticeException;
 import org.innobl.notice.service.NoticeService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,13 +19,9 @@ public class NoticeServiceTest {
     NoticeService noticeService;
 
     @Test
+    @DisplayName("빈 테이블에서 1건의 결과를 기대하면 실패한다.")
     void getAllNoticesTest(){
         List<Notice> noticeList = noticeService.getAllNotices();
         assertThat(noticeList.size()).isEqualTo(1);
-
-        // Test for exception case
-        assertThrows(NoticeException.class, () -> {
-            noticeService.getAllNotices();
-        });
     }
 }
