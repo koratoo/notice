@@ -2,6 +2,7 @@ package org.innobl.notice.service;
 
 import org.innobl.notice.beans.Notice;
 import org.innobl.notice.dto.NoticeBoardDto;
+import org.innobl.notice.exception.NoticeErrorMessage;
 import org.innobl.notice.exception.NoticeException;
 import org.innobl.notice.service.NoticeService;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class NoticeServiceTest {
@@ -25,6 +27,20 @@ public class NoticeServiceTest {
         List<Notice> noticeList = noticeService.getAllNotices();
         assertThat(noticeList.size()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("빈 테이블에서 예외처리 후 에러메세지가 나타난다.")
+    void noDataExceptionTest(){
+        NoticeException exception = assertThrows(NoticeException.class, () -> {
+            noticeService.getAllNotices();
+        });
+
+        String expectedMessage = NoticeErrorMessage.NOTICE_NOT_FOUND.getMessage();
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
 
     @Test
     @DisplayName("builder작동 테스트")
