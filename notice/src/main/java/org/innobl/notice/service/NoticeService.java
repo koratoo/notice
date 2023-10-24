@@ -1,6 +1,7 @@
 package org.innobl.notice.service;
 
 import org.innobl.notice.beans.Notice;
+import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.exception.NoticeErrorMessage;
 import org.innobl.notice.exception.NoticeException;
 import org.innobl.notice.mapper.NoticeMapper;
@@ -24,5 +25,9 @@ public class NoticeService {
             throw new NoticeException(NoticeErrorMessage.NOTICE_NOT_FOUND.getMessage());
         }
         return notices;
+    }
+
+    public void writeNotice(NoticeBoardDto dto){
+        noticeMapper.writeNotice(dto);
     }
 }

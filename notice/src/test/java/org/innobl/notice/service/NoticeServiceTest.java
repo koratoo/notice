@@ -54,4 +54,21 @@ public class NoticeServiceTest {
         assertThat(dto.getWriter()).isEqualTo("홍기동");
 
     }
+
+    @Test
+    @DisplayName("데이터 1건 등록 테스트")
+    void insertOneDate(){
+        //given
+        NoticeBoardDto dto = NoticeBoardDto.builder()
+                .writer("홍길동")
+                .fixed("고정")
+                .nb_title("첫번째 공지글")
+                .nb_content("글 내용은 2048바이트")
+                .build();
+        //when
+        noticeService.writeNotice(dto);
+
+        //then
+        assertThat(noticeService.getAllNotices().size()).isEqualTo(1);
+    }
 }

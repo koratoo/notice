@@ -5,4 +5,18 @@
     <select id="getAllNotices" resultType="org.innobl.notice.beans.Notice">
         select * from notice.noticeboard
     </select>
+
+    <insert id="writeNotice" parameterType="org.innobl.notice.beans.Notice">
+        INSERT INTO notice.noticeboard (
+            nb_title,
+            nb_content,
+            writer,
+            fixed
+        ) VALUES (
+            #{nb_title},
+            #{nb_content},
+            #{writer},
+            #{fixed}
+        )
+    </insert>
 </mapper>
