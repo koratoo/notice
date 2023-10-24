@@ -1,5 +1,6 @@
 package org.innobl.notice.service;
 
+import org.innobl.commons.Pagination;
 import org.innobl.notice.beans.Notice;
 import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.exception.NoticeErrorMessage;
@@ -90,5 +91,19 @@ public class NoticeServiceTest {
         noticeService.deleteNotice(num);
         //then
         assertThat(noticeService.getAllNotices().size()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("10개의 글을 불러 후 갯수가 10개인지 확인한다.")
+    void getNoticesWithPaging(){
+        //given
+        Pagination p = Pagination.builder()
+                .limit(10)
+                .offset(0)
+                .build();
+        //when
+        int pages = noticeService.getNoticesWithPaging(p).size();
+        //then
+        assertThat(pages).isEqualTo(10);
     }
 }

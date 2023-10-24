@@ -2,6 +2,7 @@ package org.innobl.notice.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.innobl.commons.Pagination;
 import org.innobl.notice.beans.Notice;
 import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.service.NoticeService;
@@ -17,5 +18,6 @@ public interface NoticeMapper {
     public void writeNotice(NoticeBoardDto dto);
     public void deleteNotice(int nbno);
 
+    public List<Notice> getNoticesWithPaging(Pagination pagination);
 
 }

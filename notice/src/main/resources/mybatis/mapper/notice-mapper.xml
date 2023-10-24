@@ -25,4 +25,12 @@
     <delete id="deleteNotice" parameterType="Integer">
         delete from notice.noticeboard where nbno = #{nbno}
     </delete>
+
+    <select id="getNoticesWithPaging" parameterType="org.innobl.commons.Pagination" resultType="org.innobl.notice.beans.Notice">
+        SELECT * FROM notice.noticeboard
+        ORDER BY nbno DESC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+
 </mapper>

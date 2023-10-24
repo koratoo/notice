@@ -1,5 +1,6 @@
 package org.innobl.notice.service;
 
+import org.innobl.commons.Pagination;
 import org.innobl.notice.beans.Notice;
 import org.innobl.notice.dto.NoticeBoardDto;
 import org.innobl.notice.exception.NoticeErrorMessage;
@@ -32,5 +33,8 @@ public class NoticeService {
     }
     public void deleteNotice(int nbno){
         noticeMapper.deleteNotice(nbno);
+    }
+    public List<Notice> getNoticesWithPaging(Pagination pagination){
+        return noticeMapper.getNoticesWithPaging(pagination);
     }
 }
