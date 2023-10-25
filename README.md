@@ -4,6 +4,7 @@
 -Frontend: mustache
 ## 기능1. 관리자만 글을 작성할 수 있음
 ## 기능2. 고정하고 싶은 글은 최상단에 위치함
+![image](https://github.com/koratoo/notice-board/assets/96603612/6548ef53-5713-410f-b4d2-07094e584c2f)
 
 ## 새로운 기술스택 : PostgreSQL, DBeaver
 ![image](https://github.com/koratoo/notice/assets/96603612/f205bf9f-3623-4319-86a9-9d7b30fabe8b)
