@@ -68,9 +68,9 @@ public class NoticeServiceTest {
     void insertOneDate(){
         //given
             NoticeBoardDto dto = NoticeBoardDto.builder()
-                    .writer("파르헤시아")
-                    .nb_title("산문에 대하여")
-                    .nb_content("운문에 대립되는 글의 양식으로 일정한 운율이나 정형성을 지니지 않은 문장.대체로 일상적인 표현 방식이나 언어 용법으로 짜여져 있는 글, 이것이 바로 산문에 대한 통념이다. 산문의 기본 의미와 형태 그리고 여러 가지 특질들을 정확하게 알려면, 운문과 대비시켜보는 작업이 필요하다. 실제로 산문은 운문과는 차별성을 내보이는 가운데서도 동질성 또한 분명하게 드러내고 있다. ")
+                    .writer("윤동주")
+                    .nb_title("참회록")
+                    .nb_content("파란 녹이 낀 구리거울 속에 내 얼굴이 남아 있는 것은 어느 왕조의 유물이기에 이다지도 욕될까 나는 나의 참회의 글을 한 줄에 줄이자 -만 24년 1개월을 무슨 기쁨을 바라 살아왔던가")
                     .build();
             //when
             noticeService.writeNotice(dto);
