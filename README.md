@@ -12,7 +12,7 @@
 ## Mustache 사용시 에러사항 - if문의 부재
 ![image](https://github.com/koratoo/notice-board/assets/96603612/da3964f7-3c06-4c7f-bcba-e6a112a7f42c)<br>
 
-머스태치는 굉장히 쉽고 직관적으로 사용하기 편했다. 하지만 if문이 지원되지 않아 서버단에서 참/거짓을 판별 후 flag를 전송해 주어야 한다.기능은 구현했지만 불필요한 코드가 추가되는 느낌을 받았다. vue.js의 경우 v-if문법을 통해 쉽게 참/거짓을 판별하고 jsp에서도 if문이 가능해서 당연히 지원되는 기능이라 생각했다.
+Mustache was very easy and intuitive to use. However, since it does not support if statements, I had to determine true/false on the server side and send a flag. Although I implemented the function, I felt like unnecessary code was being added. In the case of Vue.js, it is easy to determine true/false using the v-if syntax, and even in JSP, if statements are possible, so I thought it was a feature that would naturally be supported.
 
 ## Swagger 사용시 에러사항 - Unable to infer baseurl
 ![image](https://github.com/koratoo/notice-board/assets/96603612/56af3c63-36d7-49bc-9f33-3dd7c8643a06)
