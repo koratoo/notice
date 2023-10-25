@@ -48,6 +48,7 @@
         type: 'PUT',
         success: function(result) {
             alert('공지로 등록되었습니다.');
+            location.reload();
         },
         error: function(xhr, status, error) {
             alert('공지 등록에 실패했습니다: ' + error);
@@ -56,7 +57,7 @@
 }
 
 function goBack() {
-    window.history.back();
+    window.location.href='/notice/main';
 }
 
 </script>
