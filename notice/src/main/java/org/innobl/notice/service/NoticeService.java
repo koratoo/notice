@@ -41,5 +41,10 @@ public class NoticeService {
         return noticeMapper.getNoneFixedNotices();
     }
 
-
+    public Notice getNotice(int nbno){
+        return noticeMapper.getNotice(nbno);
+    }
+    public void editFixedNotice(int nbno){
+        noticeMapper.editFixedNotice(nbno);
+    }
 }

@@ -25,7 +25,7 @@
                     {{#fixedNotice}}
                     <tr>
                         <td>공지</td>
-                        <td>{{nb_title}}</td>
+                        <td> <a href="/notice/detail/{{nbno}}">{{nb_title}} </a></td>
                         <td>{{writer}}</td>
                         <td>{{regDate}}</td>
                     </tr>
@@ -35,7 +35,7 @@
                     {{#nfixedNotice}}
                         <table>
                             <tr>
-                                <td colspan="2"><h2>{{nb_title}}</h2></td>
+                                <td colspan="2"><a href="/notice/detail/{{nbno}}"><h2>{{nb_title}}</h2></a></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><h6>{{nb_content}}</h6></td>

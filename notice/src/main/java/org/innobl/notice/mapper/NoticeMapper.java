@@ -18,4 +18,6 @@ public interface NoticeMapper {
     public void deleteNotice(int nbno);
     public List<Notice> getFixedNotices();
     public List<Notice> getNoneFixedNotices();
+    public Notice getNotice(int nbno);
+    public void editFixedNotice(int nbno);
 }

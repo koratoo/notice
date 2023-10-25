@@ -6,6 +6,7 @@ import org.innobl.notice.service.NoticeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,5 +27,12 @@ public class NoticeController {
     @PostMapping("/write")
     public String writeNotice(NoticeBoardDto dto){
         return "redirect:/main";
+    }
+
+    @GetMapping("/detail/{nbno}")
+    public String showNoticeDetailPage(Model model, @PathVariable("nbno") int nbno){
+
+        model.addAttribute("notice",noticeService.getNotice(nbno));
+        return "/notice/detail";
     }
 }

@@ -1,0 +1,53 @@
+{{>common/header}}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('https://codepresso-online-platform-public.s3.ap-northeast-2.amazonaws.com/java-web/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-10">
+                <div class="site-heading">
+                    <h1>INNOBL Project #3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            {{#notice}}
+                <div class="post">
+                    <h4 class="post-title">글 제목</h4>
+                    <p class="post-content">{{nb_title}}</p>
+
+                    <h4 class="post-title">글 내용</h4>
+                    <p class="post-content">{{nb_content}}</p>
+
+                    <h6 class="post-meta">글쓴이 : <span>{{writer}}</span></h6>
+                    <h6 class="post-meta">작성일 : <span>{{regDate}}</span></h6>
+                </div>
+                <button data-nbno="{{nbno}}" onclick="editFixedNotice(this)">공지로 등록하기</button>
+            {{/notice}}
+
+        </div>
+    </div>
+</div>
+{{>common/footer}}
+
+<script>
+ function editFixedNotice(button) {
+    var nbno = $(button).data('nbno');
+
+    $.ajax({
+        url: '/nb/edit/' + nbno,
+        type: 'PUT',
+        success: function(result) {
+            alert('공지로 등록되었습니다.');
+        },
+        error: function(xhr, status, error) {
+            alert('공지 등록에 실패했습니다: ' + error);
+        }
+    });
+}
+
+</script>

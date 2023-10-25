@@ -36,6 +36,7 @@
 
     <select id="getFixedNotices" resultType="org.innobl.notice.beans.Notice">
         SELECT
+            nbno,
             nb_title,
             nb_content,
             writer,
@@ -47,6 +48,7 @@
 
     <select id="getNoneFixedNotices" resultType="org.innobl.notice.beans.Notice">
         SELECT
+            nbno,
             nb_title,
             nb_content,
             writer,
@@ -59,4 +61,21 @@
         OFFSET #{OFFSET};
     </select>
 
+    <select id="getNotice" resultType="org.innobl.notice.beans.Notice">
+        SELECT
+            nbno,
+            nb_title,
+            nb_content,
+            writer,
+            regDate,
+            modDate
+        FROM nb.noticeboard
+        WHERE nbno = #{nbno}
+    </select>
+
+    <update id="editFixedNotice">
+        UPDATE nb.noticeboard
+            SET fixed = '200'
+        WHERE nbno = #{nbno}
+    </update>
 </mapper>
