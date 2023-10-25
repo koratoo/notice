@@ -34,7 +34,12 @@ public class NoticeService {
     public void deleteNotice(int nbno){
         noticeMapper.deleteNotice(nbno);
     }
-    public List<Notice> getFixedNotices(){return noticeMapper.getFixedNotices();}
+    public List<Notice> getFixedNotices(){
+        return noticeMapper.getFixedNotices();
+    }
+    public List<Notice> getNoneFixedNotices(){
+        return noticeMapper.getNoneFixedNotices();
+    }
 
 
 }

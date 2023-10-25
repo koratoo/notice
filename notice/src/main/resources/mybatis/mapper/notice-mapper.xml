@@ -14,11 +14,11 @@
             regdate,
             fixed
         ) VALUES (
-            #{nb_title},
-            #{nb_content},
-            #{writer},
-            date_trunc('second', current_timestamp),
-            #{fixed}
+            COALESCE(#{nb_title},'제목을 입력해주세요.'),
+            COALESCE(#{nb_content},'내용을 입력해주세요.'),
+            COALESCE(#{writer},'익명'),
+            (date_trunc('second', current_timestamp) AT TIME ZONE 'UTC'),
+            COALESCE(#{fixed}, 100)
         )
     </insert>
 
@@ -35,7 +35,28 @@
     </select>
 
     <select id="getFixedNotices" resultType="org.innobl.notice.beans.Notice">
-        SELECT * FROM nb.noticeboard where fixed ='고정';
+        SELECT
+            nb_title,
+            nb_content,
+            writer,
+            regDate,
+            modDate
+        FROM nb.noticeboard
+        WHERE fixed ='고정';
+    </select>
+
+    <select id="getNoneFixedNotices" resultType="org.innobl.notice.beans.Notice">
+        SELECT
+            nb_title,
+            nb_content,
+            writer,
+            regDate,
+            modDate
+        FROM nb.noticeboard
+        WHERE fixed !='고정'
+        ORDER BY nbno DESC
+        LIMIT #{LIMIT}
+        OFFSET #{OFFSET};
     </select>
 
 </mapper>

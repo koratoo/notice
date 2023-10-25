@@ -14,10 +14,8 @@ import java.util.List;
 public interface NoticeMapper {
 
     public List<Notice> getAllNotices();
-
     public void writeNotice(NoticeBoardDto dto);
     public void deleteNotice(int nbno);
-
-
     public List<Notice> getFixedNotices();
+    public List<Notice> getNoneFixedNotices();
 }
