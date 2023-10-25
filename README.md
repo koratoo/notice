@@ -10,3 +10,4 @@
 ![image](https://github.com/koratoo/notice/assets/96603612/f205bf9f-3623-4319-86a9-9d7b30fabe8b)
 
 ## 구현시 주의점 : 단위테스트 작성
+![image](https://github.com/koratoo/notice-board/assets/96603612/2d93e2bb-a9f1-4df2-b66b-f014a75e33c7)
