@@ -29,7 +29,7 @@
     <select id="getNoticesWithPaging" parameterType="org.innobl.commons.Pagination" resultType="org.innobl.notice.beans.Notice">
         SELECT * FROM nb.noticeboard
         ORDER BY
-        CASE WHEN fixed = '고정' THEN 0 ELSE 1 END,
+        CASE WHEN fixed = '200' THEN 0 ELSE 1 END,
         nbno DESC
         LIMIT #{limit} OFFSET #{offset}
     </select>
@@ -42,7 +42,7 @@
             regDate,
             modDate
         FROM nb.noticeboard
-        WHERE fixed ='고정';
+        WHERE fixed ='200';
     </select>
 
     <select id="getNoneFixedNotices" resultType="org.innobl.notice.beans.Notice">
@@ -53,7 +53,7 @@
             regDate,
             modDate
         FROM nb.noticeboard
-        WHERE fixed !='고정'
+        WHERE fixed !='200'
         ORDER BY nbno DESC
         LIMIT #{LIMIT}
         OFFSET #{OFFSET};

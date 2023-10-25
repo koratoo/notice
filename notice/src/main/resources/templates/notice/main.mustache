@@ -17,15 +17,15 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
                 <table class="table table-striped">
                     <tr>
+                        <th>타입</th>
                         <th>글제목</th>
-                        <th>글내용</th>
                         <th>글쓴이</th>
                         <th>등록일</th>
                     </tr>
                     {{#fixedNotice}}
                     <tr>
+                        <td>공지</td>
                         <td>{{nb_title}}</td>
-                        <td>{{nb_content}}</td>
                         <td>{{writer}}</td>
                         <td>{{regDate}}</td>
                     </tr>
@@ -35,10 +35,10 @@
                     {{#nfixedNotice}}
                         <table>
                             <tr>
-                                <td><h2>{{nb_title}}</h2></td>
+                                <td colspan="2"><h2>{{nb_title}}</h2></td>
                             </tr>
                             <tr>
-                                <td><h6>{{nb_content}}</h6></td>
+                                <td colspan="2"><h6>{{nb_content}}</h6></td>
                             </tr>
                             <tr>
                                 <td><h6>{{writer}}</h6></td>
