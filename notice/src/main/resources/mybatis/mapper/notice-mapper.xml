@@ -64,6 +64,7 @@
     <select id="getNotice" resultType="org.innobl.notice.beans.Notice">
         SELECT
             nbno,
+            fixed,
             nb_title,
             nb_content,
             writer,

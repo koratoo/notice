@@ -27,7 +27,11 @@
                     <h6 class="post-meta">작성일 : <span>{{regDate}}</span></h6>
                 </div>
                 <button class="btn btn-warning btn-sm" onclick="goBack()">뒤로 가기</button>
-                <button class="btn btn-success btn-sm" data-nbno="{{nbno}}" onclick="editFixedNotice(this)">공지로 등록하기</button>
+
+                {{#showButton}}
+                        <button class="btn btn-success btn-sm" data-nbno="{{nbno}}" onclick="editFixedNotice(this)">공지로 등록하기</button>
+                {{/showButton}}
+
             {{/notice}}
 
         </div>

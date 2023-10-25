@@ -31,7 +31,9 @@ public class NoticeController {
 
     @GetMapping("/detail/{nbno}")
     public String showNoticeDetailPage(Model model, @PathVariable("nbno") int nbno){
-
+        if(noticeService.getNotice(nbno).getFixed().equals("100")){
+            model.addAttribute("showButton","true");
+        }
         model.addAttribute("notice",noticeService.getNotice(nbno));
         return "/notice/detail";
     }
