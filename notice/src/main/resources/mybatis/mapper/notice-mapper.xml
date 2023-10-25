@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.innobl.notice.mapper.NoticeMapper">
     <select id="getAllNotices" resultType="org.innobl.notice.beans.Notice">
-        select * from nb.noticeboard
+        select * from noticeboard
     </select>
 
     <insert id="writeNotice" parameterType="org.innobl.notice.beans.Notice">
-        INSERT INTO nb.noticeboard (
+        INSERT INTO noticeboard (
             nb_title,
             nb_content,
             writer,
@@ -23,11 +23,11 @@
     </insert>
 
     <delete id="deleteNotice" parameterType="Integer">
-        delete from nb.noticeboard where nbno = #{nbno}
+        delete from noticeboard where nbno = #{nbno}
     </delete>
 
     <select id="getNoticesWithPaging" parameterType="org.innobl.commons.Pagination" resultType="org.innobl.notice.beans.Notice">
-        SELECT * FROM nb.noticeboard
+        SELECT * FROM noticeboard
         ORDER BY
         CASE WHEN fixed = '200' THEN 0 ELSE 1 END,
         nbno DESC
@@ -42,7 +42,7 @@
             writer,
             regDate,
             modDate
-        FROM nb.noticeboard
+        FROM noticeboard
         WHERE fixed ='200';
     </select>
 
@@ -54,7 +54,7 @@
             writer,
             regDate,
             modDate
-        FROM nb.noticeboard
+        FROM noticeboard
         WHERE fixed !='200'
         ORDER BY nbno DESC
         LIMIT #{LIMIT}
@@ -70,12 +70,12 @@
             writer,
             regDate,
             modDate
-        FROM nb.noticeboard
+        FROM noticeboard
         WHERE nbno = #{nbno}
     </select>
 
     <update id="editFixedNotice">
-        UPDATE nb.noticeboard
+        UPDATE noticeboard
             SET fixed = '200'
         WHERE nbno = #{nbno}
     </update>
