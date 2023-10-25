@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.innobl.notice.mapper.NoticeMapper">
     <select id="getAllNotices" resultType="org.innobl.notice.beans.Notice">
-        select * from notice.noticeboard
+        select * from nb.noticeboard
     </select>
 
     <insert id="writeNotice" parameterType="org.innobl.notice.beans.Notice">
-        INSERT INTO notice.noticeboard (
+        INSERT INTO nb.noticeboard (
             nb_title,
             nb_content,
             writer,
@@ -23,14 +23,19 @@
     </insert>
 
     <delete id="deleteNotice" parameterType="Integer">
-        delete from notice.noticeboard where nbno = #{nbno}
+        delete from nb.noticeboard where nbno = #{nbno}
     </delete>
 
     <select id="getNoticesWithPaging" parameterType="org.innobl.commons.Pagination" resultType="org.innobl.notice.beans.Notice">
-        SELECT * FROM notice.noticeboard
-        ORDER BY nbno DESC
+        SELECT * FROM nb.noticeboard
+        ORDER BY
+        CASE WHEN fixed = '고정' THEN 0 ELSE 1 END,
+        nbno DESC
         LIMIT #{limit} OFFSET #{offset}
     </select>
 
+    <select id="getFixedNotices" resultType="org.innobl.notice.beans.Notice">
+        SELECT * FROM nb.noticeboard where fixed ='고정';
+    </select>
 
 </mapper>

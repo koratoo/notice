@@ -93,17 +93,11 @@ public class NoticeServiceTest {
         assertThat(noticeService.getAllNotices().size()).isEqualTo(2);
     }
 
+
     @Test
-    @DisplayName("10개의 글을 불러 후 갯수가 10개인지 확인한다.")
-    void getNoticesWithPaging(){
-        //given
-        Pagination p = Pagination.builder()
-                .limit(10)
-                .offset(0)
-                .build();
-        //when
-        int pages = noticeService.getNoticesWithPaging(p).size();
-        //then
-        assertThat(pages).isEqualTo(10);
+    @DisplayName("고정된 공지목록을 불러온다.")
+    void getFixedNotices(){
+        assertThat(noticeService.getFixedNotices().size()).isEqualTo(3);
+
     }
 }

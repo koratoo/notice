@@ -34,7 +34,7 @@ public class NoticeService {
     public void deleteNotice(int nbno){
         noticeMapper.deleteNotice(nbno);
     }
-    public List<Notice> getNoticesWithPaging(Pagination pagination){
-        return noticeMapper.getNoticesWithPaging(pagination);
-    }
+    public List<Notice> getFixedNotices(){return noticeMapper.getFixedNotices();}
+
+
 }

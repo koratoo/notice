@@ -18,6 +18,6 @@ public interface NoticeMapper {
     public void writeNotice(NoticeBoardDto dto);
     public void deleteNotice(int nbno);
 
-    public List<Notice> getNoticesWithPaging(Pagination pagination);
 
+    public List<Notice> getFixedNotices();
 }
