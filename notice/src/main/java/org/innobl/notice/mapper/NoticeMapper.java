@@ -20,4 +20,6 @@ public interface NoticeMapper {
     public List<Notice> getNoneFixedNotices();
     public Notice getNotice(int nbno);
     public void editFixedNotice(int nbno);
+
+    public void updateFixed();
 }

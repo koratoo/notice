@@ -79,4 +79,9 @@
             SET fixed = '200'
         WHERE nbno = #{nbno}
     </update>
+
+
+    <update id="updateFixed">
+        UPDATE noticeBoard SET fixed = '100'
+    </update>
 </mapper>
