@@ -47,4 +47,8 @@ public class NoticeService {
     public void editFixedNotice(int nbno){
         noticeMapper.editFixedNotice(nbno);
     }
+    public List<Notice> getNoticeByDate(String from,String to){
+        return noticeMapper.getNoticeByDate(from,to);
+    }
+
 }

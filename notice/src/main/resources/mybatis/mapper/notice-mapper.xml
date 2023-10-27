@@ -3,7 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.innobl.notice.mapper.NoticeMapper">
     <select id="getAllNotices" resultType="org.innobl.notice.beans.Notice">
-        select * from noticeboard
+        SELECT *
+        FROM noticeboard
+    </select>
+
+    <select id="getNoticeByDate" resultType="org.innobl.notice.beans.Notice">
+        SELECT *
+        FROM noticeboard
+        WHERE regdate BETWEEN #{from} AND #{to}
     </select>
 
     <insert id="writeNotice" parameterType="org.innobl.notice.beans.Notice">

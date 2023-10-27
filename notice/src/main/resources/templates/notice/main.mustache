@@ -75,21 +75,9 @@
                     {{/fixedNotice}}
                 </table>
 
-                    {{#nfixedNotice}}
-                        <table>
-                            <tr>
-                                <td colspan="2"><a href="/nb/detail/{{nbno}}"><h2>{{nb_title}}</h2></a></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><h6>{{nb_content}}</h6></td>
-                            </tr>
-                            <tr>
-                                <td><h6>{{writer}}</h6></td>
-                                <td><h6>{{regDate}}</h6></td>
-                            </tr>
-                        </table>
-                    <hr/>
-                    {{/nfixedNotice}}
+                    <div id="nfixedNotice">
+                    
+                    </div>
             
         </div>
     </div>
@@ -110,7 +98,16 @@
                     method: 'GET',
           			dataType:'json',
                     success: function(data) {
-                        console.log(data);
+                       var html = '';
+                        $.each(data, function(index, item){
+                            html += '<table>';
+                            html += '<tr><td colspan="2"><a href="/nb/detail/' + item.nbno + '"><h2>' + item.nb_title + '</h2></a></td></tr>';
+                            html += '<tr><td colspan="2"><h6>' + item.nb_content + '</h6></td></tr>';
+                            html += '<tr><td><h6>' + item.writer + '</h6></td><td><h6>' + item.regDate + '</h6></td></tr>';
+                            html += '</table><hr/>';
+                        });
+
+                         $('#nfixedNotice').html(html);
                     },
                     error: function(err) {
                         console.error(err);
