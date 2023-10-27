@@ -15,6 +15,50 @@
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="search-box">
+                <form action="#" method="get">
+                    <table class="table table-striped">
+                        <tr>
+                            <td style="font-weight: bold;">등록일</td>
+                            <td>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="date" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">~</span>
+                                    </div>
+                                    <input class="form-control" type="date" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">이름</td>
+                            <td>
+                                <input class="form-control form-control-sm" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">글 제목</td>
+                            <td>
+                                <input class="form-control form-control-sm" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">타입</td>
+                            <td>
+                                <label class="radio-inline">
+                                    고정
+                                    <input class="form-check-input" type="radio" name="fixed" />
+                                </label>
+                                <label class="radio-inline">
+                                    전체
+                                    <input class="form-check-input" type="radio" name="fixed" />
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
                 <table class="table table-striped">
                     <tr>
                         <th>타입</th>
@@ -25,7 +69,7 @@
                     {{#fixedNotice}}
                     <tr>
                         <td>공지</td>
-                        <td> <a href="/notice/detail/{{nbno}}">{{nb_title}} </a></td>
+                        <td> <a href="/nb/detail/{{nbno}}">{{nb_title}} </a></td>
                         <td>{{writer}}</td>
                         <td>{{regDate}}</td>
                     </tr>
@@ -35,7 +79,7 @@
                     {{#nfixedNotice}}
                         <table>
                             <tr>
-                                <td colspan="2"><a href="/notice/detail/{{nbno}}"><h2>{{nb_title}}</h2></a></td>
+                                <td colspan="2"><a href="/nb/detail/{{nbno}}"><h2>{{nb_title}}</h2></a></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><h6>{{nb_content}}</h6></td>
@@ -53,7 +97,7 @@
 </div>
 <script>
     $( document ).ready(function() {
-        window.open("/popup/d-notice", "a", "width=400, height=300, left=100, top=50");
+        window.open("/popup/daily", "a", "width=400, height=300, left=100, top=50");
     });
 </script>
 {{>common/footer}}

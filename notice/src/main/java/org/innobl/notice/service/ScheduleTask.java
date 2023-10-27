@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 @Log4j2
 @Service
 public class ScheduleTask {
-
     @Autowired
     private NoticeMapper noticeMapper;
 
-    @Scheduled(fixedDelay = 60 * 1000)
+    @Scheduled(initialDelay = 60 * 60 * 1000, fixedDelay = 60 * 60 * 1000)
     public void updateFixedColumn(){
         log.info("schedule 실행");
         noticeMapper.updateFixed();
