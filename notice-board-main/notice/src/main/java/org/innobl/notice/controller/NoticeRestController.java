@@ -24,7 +24,7 @@ public class NoticeRestController {
         noticeService.editFixedNotice(nbno);
     }
 
-    //기간 조건 -> 추후 이름, 제목에 따른 검색 조건 추가
+    //기간 조건 -> 추후 이름, 제목에 따른 검색 조건 추가!!
     @GetMapping("/search/{from}/{to}")
     public ResponseEntity<List<Notice>> getSearchResult(@PathVariable("from") String from, @PathVariable("to")String to){
 
